@@ -1,0 +1,21 @@
+extends ../layout/common.pug
+block content
+	.container
+		.row
+			.col
+				a(href="/users") Cancel
+			.col
+				h2 New Contact
+			.col
+			.col
+		.row.mt-3
+			if errors
+				each error in errors
+					.alert.alert-danger= error
+
+			form.form-inline.my-2.my-lg-0(action='/users/create', method='POST')
+				input.form-control.mr-sm-2(type='text', name='name', placeholder='Name')
+				input.form-control.mr-sm-2(type='text', name='phone', placeholder='Phone')
+				button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Done
+
+
