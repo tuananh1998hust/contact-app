@@ -1,3 +1,23 @@
 extends ../layout/common.pug
 block content
-	h1 Users
+	.container
+		.row
+			.col
+				h1 Contacts
+			.col
+				a(href='/users/create')
+					i.fas.fa-plus
+			.col
+			.col
+		.row.mt-3
+			form.form-inline.my-2.my-lg-0(action='/users/search', method='GET')
+				input.form-control.mr-sm-2(type='text', name='q', placeholder='Search', aria-label='Search')
+				button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+		.row.mt-3
+			ul.list-group
+				each user in users
+					li.list-group-item.list-group-item-secondary(style="width: 200px")
+						a(href="/users/views/" + user.id)
+							span= user.name
+
