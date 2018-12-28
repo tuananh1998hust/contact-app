@@ -6,6 +6,8 @@ const middleware = require('../middleware/middleware.users.js');
 
 router.get('/', controller.index);
 
+router.get('/search', controller.search);
+
 router.get('/create', controller.getCreate);
 
 router.post('/create', middleware.postCreate ,controller.postCreate);
