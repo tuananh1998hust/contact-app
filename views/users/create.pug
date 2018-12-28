@@ -14,8 +14,8 @@ block content
 					.alert.alert-danger= error
 
 			form.form-inline.my-2.my-lg-0(action='/users/create', method='POST')
-				input.form-control.mr-sm-2(type='text', name='name', placeholder='Name')
-				input.form-control.mr-sm-2(type='text', name='phone', placeholder='Phone')
+				input.form-control.mr-sm-2(type='text', name='name', placeholder='Name', value=value ? value.name : '')
+				input.form-control.mr-sm-2(type='text', name='phone', placeholder='Phone', value=value ? value.phone : '')
 				button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Done
 
 
