@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const routesUsers = require('./routes/routes.users.js');
+const routesUsers = require('./routes/routes.users');
+const routesAuth = require('./routes/routes.auth');
 
 const port = 3000;
 
@@ -18,5 +19,6 @@ app.get('/', (req, res) => res.render('index'));
 
 app.use('/users', routesUsers);
 
+app.use('/auth', routesAuth);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

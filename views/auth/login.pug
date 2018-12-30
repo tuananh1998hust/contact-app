@@ -1,0 +1,16 @@
+extends ../layout/common.pug
+block content
+	.container
+		.row
+			h1 Sign in
+		.row.mt-3
+			form(method="POST")
+				.form-group
+					label(for="email") Email
+					input.form-control#email(type="text", name="email", style="width: 500px")
+				.form-group
+					label(for="password") Password
+					input.form-control#password(type="password", name="password", style="width: 500px")
+					button.btn.btn-primary.mt-3(type="submit") Sign in
+		.row
+			a(href="/auth/") Đăng ký nếu bạn chưa có tài khoản
