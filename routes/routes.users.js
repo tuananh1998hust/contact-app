@@ -12,6 +12,8 @@ router.get('/create', controller.getCreate);
 
 router.get('/views/:id', controller.viewsUser);
 
+router.get('/views/:id/edit', controller.editUser);
+
 router.post('/create', middleware.postCreate ,controller.postCreate);
 
 module.exports = router;
