@@ -16,4 +16,6 @@ router.get('/views/:id/edit', controller.editUser);
 
 router.post('/create', middleware.postCreate ,controller.postCreate);
 
+router.post('/views/:id/edit', controller.postEdit);
+
 module.exports = router;

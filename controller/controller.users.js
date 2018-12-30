@@ -63,3 +63,14 @@ module.exports.postCreate = (req, res, next) => {
 
 	res.redirect('/users');
 }
+
+module.exports.postEdit = (req, res) => {
+	let id = req.params.id;
+
+	let user = db.get('users')
+		.find({ id: id })
+		.assign({ name: req.body.name, phone: req.body.phone })
+		.write();
+
+	res.redirect('/users');
+}
