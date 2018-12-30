@@ -1,0 +1,24 @@
+extends ../layout/common.pug
+block content
+	.container
+		.row
+			.col
+				table.table(style="width: 300px")
+					tr
+						td.col
+							a(href="/users/views/" + user.id) Cancel
+						td.col
+							h1 Edit
+		.row
+			.col
+				form(method="POST")
+					.form-group
+						label(for="name") Name
+						input.form-control#name(type="text", name="name", value= user.name, style="width: 500px")
+					.form-group
+						label(for="phone") Phone
+						input.form-control#phone(type="text", name="phone", value= user.phone, style="width: 500px")
+						button.btn.btn-primary.mt-3(type="submit") Done
+		.row
+			.col
+				button.btn.btn-primary.btn-lg(type="submit") Del
