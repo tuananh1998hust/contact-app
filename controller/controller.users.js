@@ -38,6 +38,14 @@ module.exports.getCreate = (req, res) => {
 	res.render('users/create');
 }
 
+module.exports.viewsUser = (req, res) => {
+	let id = req.params.id;
+
+	let user = db.get('users').find({ id: id }).value();
+
+	res.render('users/views', { user: user });
+}
+
 module.exports.postCreate = (req, res, next) => {
 	req.body.id = shortid.generate();
 

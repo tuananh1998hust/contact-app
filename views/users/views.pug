@@ -1,0 +1,16 @@
+extends ../layout/common.pug
+block content
+	.container
+		.row
+			table.table(style="width: 400px")
+				tr
+					th.col Views Users
+					td.col
+						a(href="/users/views/:id/edit") Edit
+				tr
+					th.col Name
+					td.col= user.name
+				tr
+					th.col Phone
+					td.col= user.phone
+
