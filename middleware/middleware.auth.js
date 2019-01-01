@@ -19,3 +19,37 @@ module.exports.postLogin = (req, res, next) => {
 
 	next();
 }
+
+module.exports.postSignUp = (req, res, next) => {
+	const email = req.body.email;
+	const pass = req.body.password;
+	const errors = [];
+
+	const findEmail = db.get('users').find({ email: email }).value();
+
+	if (findEmail) {
+		errors.push('Account is already exist');
+	}
+
+	if (!req.body.name) {
+		errors.push('Name is not require');
+	}
+
+	if (!req.body.phone) {
+		errors.push('phone is not require');
+	}
+
+	if (!req.body.password) {
+		errors.push('password is not require');
+	}
+
+	if (errors.length) {
+		res.render('auth/signup', {
+			errors: errors,
+			value: req.body
+		});
+		return;
+	}
+
+	next();
+}
