@@ -8,6 +8,10 @@ module.exports.index = (req, res) => {
 }
 
 module.exports.postLogin = (req, res) => {
+	const user = db.get('users').find({ email: req.body.email }).value();
+
+	res.cookie('userId', user.id, { signed: true });
+
 	res.redirect('/users');
 }
 
@@ -25,3 +29,4 @@ module.exports.postSignUp = (req, res) => {
 
 	res.redirect('/auth/login');
 }
+

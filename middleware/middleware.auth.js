@@ -53,3 +53,21 @@ module.exports.postSignUp = (req, res, next) => {
 
 	next();
 }
+
+module.exports.mustLogin = (req, res, next) => {
+	if (!req.signedCookies.userId) {
+		res.redirect('/auth/login');
+		return;
+	}
+
+	const user = db.get('users').find({ id: req.signedCookies.userId }).value();
+
+	if (!user) {
+		res.redirect('/auth/login');
+		return;
+	}
+
+	res.locals.user = user;
+
+	next();
+}
